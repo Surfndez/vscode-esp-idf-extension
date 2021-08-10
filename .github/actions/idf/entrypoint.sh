@@ -19,7 +19,6 @@ export PY_PKGS=$(python -m pip list --format json)
 yarn
 yarn lint
 Xvfb :99 & sleep 2
-tsc -p ./
 node ./out/test/runTest.js --VERBOSE
 echo ::set-output name=result::$(cat ./out/results/test-results.xml)
-
+yarn ui-test
