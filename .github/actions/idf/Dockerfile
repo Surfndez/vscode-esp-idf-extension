@@ -33,5 +33,9 @@ RUN npm install --global typescript yarn
 ADD entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 
-ENTRYPOINT [ "/entrypoint.sh" ]
-CMD ["/bin/bash"]
+ADD ui-entrypoint.sh /ui-entrypoint.sh
+RUN chmod +x /ui-entrypoint.sh
+
+
+ENTRYPOINT ["/bin/bash"]
+CMD ["/entrypoint.sh"]

@@ -25,7 +25,10 @@ report.txt
 report.json
 src/**
 test-resources/**
-testFiles/**
+testFiles/dist/**
+testFiles/tools/**
+testFiles/esp-config.json
+testFiles/ninja
 tsconfig.json
 tslint.json
 webpack.config.js
