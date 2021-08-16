@@ -10,6 +10,8 @@ node_modules
 package.nls.*.json
 testFiles/tools
 !testFiles/dist
+testFiles/testWorkspace/build
+testFiles/testWorkspace/sdkconfig
 *.log
 .DS_Store
 bandit_output.txt

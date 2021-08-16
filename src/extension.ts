@@ -1142,15 +1142,6 @@ export async function activate(context: vscode.ExtensionContext) {
   registerIDFCommand("espIdf.monitorDevice", createMonitor);
   registerIDFCommand("espIdf.buildFlashMonitor", buildFlashAndMonitor);
 
-  registerIDFCommand("espIdf.test.openFolder", async () => {
-    const dirPath = vscode.Uri.file(
-      path.resolve(context.extensionPath, "testFiles", "testWorkspace")
-    );
-    // vscode.workspace.updateWorkspaceFolders(0, null, { uri: dirPath });
-    workspaceRoot = dirPath;
-    await vscode.commands.executeCommand("vscode.openFolder", dirPath);
-  });
-
   registerIDFCommand("espIdf.menuconfig.start", async () => {
     PreCheck.perform([openFolderCheck], () => {
       try {

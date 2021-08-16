@@ -9,7 +9,7 @@ import { expect } from "chai";
 describe("Hello world testing", async () => {
   it("Hello world notification show correct text", async () => {
     await new Workbench().executeCommand("Hello world");
-
+    await new Promise((res) => setTimeout(res, 5000));
     const notification = (await VSBrowser.instance.driver.wait(() => {
       return notificationExists("Hello");
     }, 2000)) as Notification;

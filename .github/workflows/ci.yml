@@ -61,6 +61,15 @@ jobs:
       - name: Get the test output
         run: echo "${{ steps.idftest.outputs.result }}" | tee test-result.xml
 
+  ui_test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Clone Repository
+        uses: actions/checkout@v2
+        with:
+          submodules: "recursive"
+
       - name: Run ui test
         uses: ./.github/actions/idf
         id: idfuitest
@@ -73,3 +82,6 @@ jobs:
         with:
           name: test.log
           path: ./test-resources/test.log
+      
+      - name: Get the test output
+        run: echo "${{ steps.idfuitest.outputs.uiresult }}" | tee ui-test-result.log

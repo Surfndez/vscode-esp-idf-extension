@@ -8,9 +8,8 @@
         "board/esp32-wrover-kit-3.3v.cfg"
     ],
     "idf.toolsPath": "${env:IDF_TOOLS_PATH}",
-    "idf.espIdfPathWin": "c:\\Users\\espressif\\esp\\master\\esp-idf",
-    "idf.pythonBinPathWin": "C:\\Users\\espressif\\.espressif\\python_env\\idf4.4_py3.8_env\\Scripts\\python.exe",
-    "idf.toolsPathWin": "C:\\Users\\espressif\\.espressif",
+    "files.simpleDialog.enable": true,
+    "window.dialogStyle": "custom",
     "idf.customExtraPaths": "${env:PATH}",
     "idf.customExtraVars": "{\"OPENOCD_SCRIPTS\": \"${env:OPENOCD_SCRIPTS}\" }"
 }
