@@ -25,10 +25,25 @@ jobs:
           repository: espressif/esp-idf
           submodules: "recursive"
 
+      - name: Run test
+        uses: ./.github/actions/idf
+        id: idftest
+
+      - name: Get the test output
+        run: echo "${{ steps.idftest.outputs.result }}" | tee test-result.xml
+
+      - name: Upload if failed test results
+        uses: actions/upload-artifact@v1
+        if: failure()
+        with:
+          name: test-result.xml
+          path: test-result.xml
+
       - name: Setup Node.js 12.x
         uses: actions/setup-node@v1
         with:
           node-version: "12.x"
+
 
       - name: Install Node Dependencies
         run: yarn
@@ -54,13 +69,6 @@ jobs:
           name: esp-idf-extension.vsix
           path: esp-idf-extension.vsix
 
-      - name: Run test
-        uses: ./.github/actions/idf
-        id: idftest
-
-      - name: Get the test output
-        run: echo "${{ steps.idftest.outputs.result }}" | tee test-result.xml
-
   ui_test:
     runs-on: ubuntu-latest
 
@@ -75,13 +83,3 @@ jobs:
         id: idfuitest
         with:
           run: /ui-entrypoint.sh
-      
-      - name: Upload log
-        uses: actions/upload-artifact@v1
-        if: failure()
-        with:
-          name: test.log
-          path: ./test-resources/test.log
-      
-      - name: Get the test output
-        run: echo "${{ steps.idfuitest.outputs.uiresult }}" | tee ui-test-result.log

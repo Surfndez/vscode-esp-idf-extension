@@ -69,7 +69,7 @@
     </div>
     <div v-if="config.type === 'string'" class="form-group">
       <div class="field has-addons">
-        <label v-text="config.title" />
+        <label v-text="config.title" :data-config-id="config.id" />
         <div class="info-icon" @click="toggleHelp">
           <iconify-icon icon="info" />
         </div>

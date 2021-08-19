@@ -361,15 +361,6 @@ export async function activate(context: vscode.ExtensionContext) {
     }
   });
 
-  const disposable = vscode.commands.registerCommand(
-    "espIdf.helloWorld",
-    () => {
-      vscode.window.showInformationMessage("Hello World!");
-    }
-  );
-
-  context.subscriptions.push(disposable);
-
   registerIDFCommand("espIdf.createFiles", async () => {
     PreCheck.perform([openFolderCheck], async () => {
       try {
