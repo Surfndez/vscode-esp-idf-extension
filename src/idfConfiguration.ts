@@ -23,6 +23,7 @@ const platformDepConfigurations: string[] = [
   "idf.espIdfPath",
   "idf.espAdfPath",
   "idf.espMdfPath",
+  "idf.espMatterPath",
   "idf.pythonBinPath",
   "idf.port",
   "idf.toolsPath",
